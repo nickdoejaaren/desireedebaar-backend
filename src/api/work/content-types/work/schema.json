@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "works",
+  "info": {
+    "singularName": "work",
+    "pluralName": "works",
+    "displayName": "work"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Gallery": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "Year": {
+      "type": "string"
+    },
+    "Size": {
+      "type": "string"
+    },
+    "Material": {
+      "type": "string"
+    },
+    "Published": {
+      "type": "boolean"
+    }
+  }
+}
