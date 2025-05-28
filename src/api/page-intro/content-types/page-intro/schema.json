@@ -4,18 +4,19 @@
   "info": {
     "singularName": "page-intro",
     "pluralName": "page-intros",
-    "displayName": "Page intro"
+    "displayName": "Page intro",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "worksIntro": {
-      "type": "blocks",
+      "type": "text",
       "required": true
     },
     "labIntro": {
-      "type": "blocks",
+      "type": "text",
       "required": true
     }
   }

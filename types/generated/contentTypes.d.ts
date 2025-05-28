@@ -407,6 +407,7 @@ export interface ApiLabLab extends Struct.CollectionTypeSchema {
 export interface ApiPageIntroPageIntro extends Struct.SingleTypeSchema {
   collectionName: 'page_intros';
   info: {
+    description: '';
     displayName: 'Page intro';
     pluralName: 'page-intros';
     singularName: 'page-intro';
@@ -418,7 +419,7 @@ export interface ApiPageIntroPageIntro extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    labIntro: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    labIntro: Schema.Attribute.Text & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -429,7 +430,7 @@ export interface ApiPageIntroPageIntro extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    worksIntro: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    worksIntro: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
