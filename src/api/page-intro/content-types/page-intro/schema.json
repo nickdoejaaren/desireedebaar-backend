@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_intros",
+  "info": {
+    "singularName": "page-intro",
+    "pluralName": "page-intros",
+    "displayName": "Page intro"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "worksIntro": {
+      "type": "blocks",
+      "required": true
+    },
+    "labIntro": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

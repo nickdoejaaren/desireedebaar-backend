@@ -404,6 +404,35 @@ export interface ApiLabLab extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPageIntroPageIntro extends Struct.SingleTypeSchema {
+  collectionName: 'page_intros';
+  info: {
+    displayName: 'Page intro';
+    pluralName: 'page-intros';
+    singularName: 'page-intro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    labIntro: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-intro.page-intro'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    worksIntro: Schema.Attribute.Blocks & Schema.Attribute.Required;
+  };
+}
+
 export interface ApiWorkWork extends Struct.CollectionTypeSchema {
   collectionName: 'works';
   info: {
@@ -946,6 +975,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::lab.lab': ApiLabLab;
+      'api::page-intro.page-intro': ApiPageIntroPageIntro;
       'api::work.work': ApiWorkWork;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
