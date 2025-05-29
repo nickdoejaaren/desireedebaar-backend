@@ -434,9 +434,37 @@ export interface ApiPageIntroPageIntro extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiTagTag extends Struct.CollectionTypeSchema {
+  collectionName: 'tags';
+  info: {
+    displayName: 'Tag';
+    pluralName: 'tags';
+    singularName: 'tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    works: Schema.Attribute.Relation<'manyToMany', 'api::work.work'>;
+  };
+}
+
 export interface ApiWorkWork extends Struct.CollectionTypeSchema {
   collectionName: 'works';
   info: {
+    description: '';
     displayName: 'work';
     pluralName: 'works';
     singularName: 'work';
@@ -458,6 +486,7 @@ export interface ApiWorkWork extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     Size: Schema.Attribute.String;
     slug: Schema.Attribute.UID;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -977,6 +1006,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::lab.lab': ApiLabLab;
       'api::page-intro.page-intro': ApiPageIntroPageIntro;
+      'api::tag.tag': ApiTagTag;
       'api::work.work': ApiWorkWork;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

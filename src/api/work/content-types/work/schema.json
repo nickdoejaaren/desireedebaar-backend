@@ -4,7 +4,8 @@
   "info": {
     "singularName": "work",
     "pluralName": "works",
-    "displayName": "work"
+    "displayName": "work",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,13 +21,14 @@
       "type": "text"
     },
     "Gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "Year": {
       "type": "string"
@@ -39,6 +41,12 @@
     },
     "Published": {
       "type": "boolean"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "works"
     }
   }
 }
