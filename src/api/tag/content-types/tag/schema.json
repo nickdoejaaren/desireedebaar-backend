@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tag",
     "pluralName": "tags",
-    "displayName": "Tag"
+    "displayName": "Tag",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,6 +24,12 @@
       "relation": "manyToMany",
       "target": "api::work.work",
       "mappedBy": "tags"
+    },
+    "labs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::lab.lab",
+      "inversedBy": "tags"
     }
   }
 }
