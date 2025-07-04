@@ -489,6 +489,9 @@ export interface ApiWorkWork extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     Size: Schema.Attribute.String;
     slug: Schema.Attribute.UID;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

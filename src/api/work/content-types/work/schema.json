@@ -47,6 +47,11 @@
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "inversedBy": "works"
+    },
+    "sortOrder": {
+      "type": "integer",
+      "required": true,
+      "default": 0
     }
   }
 }
