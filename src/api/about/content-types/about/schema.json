@@ -4,26 +4,25 @@
   "info": {
     "singularName": "about",
     "pluralName": "abouts",
-    "displayName": "About"
+    "displayName": "About",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "description": {
-      "type": "text"
+      "type": "blocks"
     },
     "email": {
       "type": "email",
       "required": true
     },
     "resume": {
-      "allowedTypes": [
-        "files"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": ["files"]
     }
   }
 }
