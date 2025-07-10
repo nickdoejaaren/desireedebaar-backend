@@ -22,7 +22,24 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["files"]
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "Social_Links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.social-link"
+    },
+    "Publications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.publication"
+    },
+    "Other_Links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.other-link"
     }
   }
 }

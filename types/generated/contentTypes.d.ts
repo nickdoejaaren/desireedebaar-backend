@@ -393,8 +393,11 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
       Schema.Attribute.Private;
+    Other_Links: Schema.Attribute.Component<'about.other-link', true>;
+    Publications: Schema.Attribute.Component<'about.publication', true>;
     publishedAt: Schema.Attribute.DateTime;
     resume: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    Social_Links: Schema.Attribute.Component<'about.social-link', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_about_publications",
+  "info": {
+    "displayName": "Publication",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "File": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
