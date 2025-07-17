@@ -30,18 +30,6 @@
         "videos"
       ]
     },
-    "Year": {
-      "type": "string"
-    },
-    "Size": {
-      "type": "string"
-    },
-    "Material": {
-      "type": "string"
-    },
-    "Published": {
-      "type": "boolean"
-    },
     "tags": {
       "type": "relation",
       "relation": "manyToMany",

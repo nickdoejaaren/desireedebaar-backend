@@ -425,7 +425,6 @@ export interface ApiLabLab extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::lab.lab'> &
       Schema.Attribute.Private;
-    Published: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
@@ -515,10 +514,7 @@ export interface ApiWorkWork extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::work.work'> &
       Schema.Attribute.Private;
-    Material: Schema.Attribute.String;
-    Published: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
-    Size: Schema.Attribute.String;
     slug: Schema.Attribute.UID;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
@@ -528,7 +524,6 @@ export interface ApiWorkWork extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Year: Schema.Attribute.String;
   };
 }
 

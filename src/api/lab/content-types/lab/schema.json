@@ -31,10 +31,6 @@
         "videos"
       ]
     },
-    "Published": {
-      "type": "boolean",
-      "default": false
-    },
     "Date": {
       "type": "string",
       "required": true
