@@ -17,9 +17,6 @@
     "slug": {
       "type": "uid"
     },
-    "Description": {
-      "type": "text"
-    },
     "Gallery": {
       "type": "media",
       "multiple": true,
@@ -40,6 +37,9 @@
       "type": "integer",
       "required": true,
       "default": 0
+    },
+    "description": {
+      "type": "blocks"
     }
   }
 }

@@ -420,7 +420,7 @@ export interface ApiLabLab extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Date: Schema.Attribute.String & Schema.Attribute.Required;
-    Description: Schema.Attribute.Text;
+    description: Schema.Attribute.Blocks;
     Gallery: Schema.Attribute.Media<'images' | 'files' | 'videos', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::lab.lab'> &
@@ -509,7 +509,7 @@ export interface ApiWorkWork extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Text;
+    description: Schema.Attribute.Blocks;
     Gallery: Schema.Attribute.Media<'images' | 'files' | 'videos', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::work.work'> &
