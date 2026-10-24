@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mds",
+  "info": {
+    "singularName": "md",
+    "pluralName": "mds",
+    "displayName": "MD",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "Gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "Date": {
+      "type": "string",
+      "required": true
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "mds"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

@@ -435,6 +435,37 @@ export interface ApiLabLab extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMdMd extends Struct.CollectionTypeSchema {
+  collectionName: 'mds';
+  info: {
+    description: '';
+    displayName: 'MD';
+    pluralName: 'mds';
+    singularName: 'md';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Blocks;
+    Gallery: Schema.Attribute.Media<'images' | 'files' | 'videos', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::md.md'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPageIntroPageIntro extends Struct.SingleTypeSchema {
   collectionName: 'page_intros';
   info: {
@@ -451,6 +482,7 @@ export interface ApiPageIntroPageIntro extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     labIntro: Schema.Attribute.Text & Schema.Attribute.Required;
+    mdIntro: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -482,6 +514,7 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     labs: Schema.Attribute.Relation<'manyToMany', 'api::lab.lab'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
+    mds: Schema.Attribute.Relation<'manyToMany', 'api::md.md'>;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
@@ -1038,6 +1071,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::lab.lab': ApiLabLab;
+      'api::md.md': ApiMdMd;
       'api::page-intro.page-intro': ApiPageIntroPageIntro;
       'api::tag.tag': ApiTagTag;
       'api::work.work': ApiWorkWork;

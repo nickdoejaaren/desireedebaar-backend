@@ -18,6 +18,9 @@
     "labIntro": {
       "type": "text",
       "required": true
+    },
+    "mdIntro": {
+      "type": "text"
     }
   }
 }
