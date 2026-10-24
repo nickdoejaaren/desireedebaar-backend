@@ -32,12 +32,6 @@
       "type": "string",
       "required": true
     },
-    "tags": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::tag.tag",
-      "mappedBy": "mds"
-    },
     "description": {
       "type": "blocks"
     }

@@ -458,7 +458,6 @@ export interface ApiMdMd extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
-    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -482,13 +481,13 @@ export interface ApiPageIntroPageIntro extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     labIntro: Schema.Attribute.Text & Schema.Attribute.Required;
-    mdIntro: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::page-intro.page-intro'
     > &
       Schema.Attribute.Private;
+    mdIntro: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -514,7 +513,6 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     labs: Schema.Attribute.Relation<'manyToMany', 'api::lab.lab'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    mds: Schema.Attribute.Relation<'manyToMany', 'api::md.md'>;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;

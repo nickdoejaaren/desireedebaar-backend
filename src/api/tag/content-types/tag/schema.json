@@ -30,12 +30,6 @@
       "relation": "manyToMany",
       "target": "api::lab.lab",
       "inversedBy": "tags"
-    },
-    "mds": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::md.md",
-      "inversedBy": "tags"
     }
   }
 }
