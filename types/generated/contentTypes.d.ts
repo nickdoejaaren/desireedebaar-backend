@@ -487,7 +487,6 @@ export interface ApiPageIntroPageIntro extends Struct.SingleTypeSchema {
       'api::page-intro.page-intro'
     > &
       Schema.Attribute.Private;
-    mdIntro: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
