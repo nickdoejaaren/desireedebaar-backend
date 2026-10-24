@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_theme_color_themes",
+  "info": {
+    "displayName": "Color theme",
+    "icon": "brush",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "background": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "required": true
+    },
+    "foreground": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "required": true
+    }
+  }
+}

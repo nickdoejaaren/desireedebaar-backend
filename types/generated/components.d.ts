@@ -36,12 +36,31 @@ export interface AboutSocialLink extends Struct.ComponentSchema {
   };
 }
 
+export interface ThemeColorTheme extends Struct.ComponentSchema {
+  collectionName: 'components_theme_color_themes';
+  info: {
+    description: '';
+    displayName: 'Color theme';
+    icon: 'brush';
+  };
+  attributes: {
+    background: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    foreground: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'about.other-link': AboutOtherLink;
       'about.publication': AboutPublication;
       'about.social-link': AboutSocialLink;
+      'theme.color-theme': ThemeColorTheme;
     }
   }
 }

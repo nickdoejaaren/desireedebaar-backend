@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "theme_settings",
+  "info": {
+    "singularName": "theme-setting",
+    "pluralName": "theme-settings",
+    "displayName": "Theme settings",
+    "description": "Color themes the palette wheel cycles through"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "themes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "theme.color-theme",
+      "min": 1
+    }
+  }
+}

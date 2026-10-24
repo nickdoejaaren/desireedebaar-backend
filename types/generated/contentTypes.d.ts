@@ -524,6 +524,41 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiThemeSettingThemeSetting extends Struct.SingleTypeSchema {
+  collectionName: 'theme_settings';
+  info: {
+    description: 'Color themes the palette wheel cycles through';
+    displayName: 'Theme settings';
+    pluralName: 'theme-settings';
+    singularName: 'theme-setting';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::theme-setting.theme-setting'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    themes: Schema.Attribute.Component<'theme.color-theme', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWorkWork extends Struct.CollectionTypeSchema {
   collectionName: 'works';
   info: {
@@ -1071,6 +1106,7 @@ declare module '@strapi/strapi' {
       'api::md.md': ApiMdMd;
       'api::page-intro.page-intro': ApiPageIntroPageIntro;
       'api::tag.tag': ApiTagTag;
+      'api::theme-setting.theme-setting': ApiThemeSettingThemeSetting;
       'api::work.work': ApiWorkWork;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
